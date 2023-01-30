@@ -1,0 +1,11 @@
+{
+  "name": "spur",
+  "version": "1.0.0",
+  "description": "Interview prep app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "GDLA",
+  "license": "MIT"
+}
