@@ -11,7 +11,7 @@ router.post('/', registerUser);
 //   res.send('Register route');
 // });
 
-router.post('/', loginUser);
+router.post('/login', loginUser);
 
 //exporting the router
 module.exports = router;
