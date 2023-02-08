@@ -14,7 +14,6 @@ const registerUser = asyncHandler(async (req, res) => {
   //   console.log(req.body);
   //desctuctire
   const { name, email, password } = req.body;
-
   //validation
   if (!name || !email || !password) {
     // return res.status(400).json({ message: 'Please include all fields' });
@@ -36,7 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   //Create user
-
   const user = await User.create({
     name,
     email,
