@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { FaQuestionCircle, FaTicketAlt } from 'react-icons/fa';
+import {
+  FaQuestionCircle,
+  FaTicketAlt,
+  FaEye,
+  FaList,
+  FaPlusCircle,
+} from 'react-icons/fa';
 
 function Home() {
   return (
@@ -10,11 +16,19 @@ function Home() {
       </section>
 
       <Link to="/new-project" className="btn btn-reverse btn-block">
-        <FaQuestionCircle /> Store New Project
+        <FaPlusCircle /> Add New Project
       </Link>
 
       <Link to="/projects" className="btn btn-block">
-        <FaTicketAlt /> View My Projects
+        <FaEye /> View My Projects
+      </Link>
+
+      <Link to="/projects" className="btn btn-reverse btn-block">
+        <FaList /> Prep For Interview
+      </Link>
+
+      <Link to="/projects" className="btn btn-block">
+        <FaEye /> View Interview Preps
       </Link>
     </>
   );
