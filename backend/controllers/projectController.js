@@ -36,7 +36,7 @@ const getProject = asyncHandler(async (req, res) => {
 
   if (!project) {
     res.status(404);
-    throw new Error('Ticket not found');
+    throw new Error('Project not found');
   }
 
   if (project.user.toString() !== req.user.id) {
