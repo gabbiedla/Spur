@@ -1,14 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
+import { FaPlus } from 'react-icons/fa';
 import { useSelector, useDis, useDispatch } from 'react-redux';
-import { getProject, reset } from '../features/projects/projectSlice';
+import { getProject } from '../features/projects/projectSlice';
+import {
+  getNotes,
+  createNote,
+  reset as notesReset,
+} from '../features/notes/noteSlice';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import NoteItem from '../components/NoteItem';
+
+const customStyles = {
+  content: {
+    width: '600px',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    position: 'relative',
+  },
+};
+
+Modal.setAppElement('#root');
 
 function Project() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const [noteText, setNoteText] = useState('');
+
   const { project, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.projects
+  );
+
+  const { notes, isLoading: notesIsLoading } = useSelector(
+    (state) => state.notes
   );
 
   const params = useParams();
@@ -19,10 +50,22 @@ function Project() {
       toast.error(message);
     }
     dispatch(getProject(projectId));
+    dispatch(getNotes(projectId));
     // eslint-disable-next-line
   }, [isError, message, projectId]);
 
-  if (isLoading) {
+  //create note submit
+  const onNoteSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createNote({ noteText, projectId }));
+    closeModal();
+  };
+
+  //Open/close modal
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
+  if (isLoading || notesIsLoading) {
     return <Spinner />;
   }
 
@@ -48,7 +91,53 @@ function Project() {
           <h3>Description of the Issue</h3>
           <p> {project.description}</p>
         </div>
+        <h2>Notes</h2>
       </header>
+      {/* comment off for add button */}
+      {/* {project.status !== 'closed' && (
+        <button onClick={openModal} className="btn">
+          <FaPlus />
+          Add Note
+        </button>
+      )} */}
+
+      <button onClick={openModal} className="btn">
+        <FaPlus />
+        Add Note
+      </button>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Add Note"
+      >
+        <h2>Add Note</h2>
+        <button className="btn-close" onClick={closeModal}>
+          X
+        </button>
+        <form onSubmit={onNoteSubmit}>
+          <div className="form-group">
+            <textarea
+              name="noteText"
+              id="noteText"
+              className="form-control"
+              placeholder="Note text"
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </Modal>
+
+      {notes.map((note) => (
+        <NoteItem key={note._id} note={note} />
+      ))}
     </div>
   );
 }
