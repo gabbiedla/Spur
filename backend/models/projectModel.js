@@ -7,14 +7,48 @@ const projectSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    product: {
+    // product: {
+    //   type: String,
+    //   required: [true, 'Please select a product'],
+    //   enum: ['iPhone', 'Macbook Pro', 'iMac', 'iPad'],
+    // },
+    // description: {
+    //   type: String,
+    //   required: [true, 'Please enter a description of the issue'],
+    // },
+    title: {
       type: String,
-      required: [true, 'Please select a product'],
-      enum: ['iPhone', 'Macbook Pro', 'iPad'],
     },
-    description: {
+    company: {
       type: String,
-      required: [true, 'Please enter a description of the issue'],
+    },
+    summary: {
+      type: String,
+    },
+    situation: {
+      type: String,
+    },
+    task: {
+      type: String,
+    },
+    action: {
+      type: String,
+    },
+    resolution: {
+      type: String,
+    },
+    stakeholders: {
+      type: String,
+    },
+    metrics: {
+      type: String,
+    },
+    takeaways: {
+      type: String,
+    },
+    tag: {
+      type: String,
+      enum: ['Ops Process', 'Web', 'Mobile', 'Other'],
     },
     status: {
       type: String,

@@ -8,15 +8,26 @@ import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
 
 function NewProject() {
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
   const { isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.projects
   ); //   const [name, setName] = useSelector(user.name);
   //   const [email, setEmail] = useState(user.email);
-  const [name] = useState(user.name);
-  const [email] = useState(user.email);
-  const [product, setProduct] = useState('iPhone');
-  const [description, setDescription] = useState('');
+  // const [name] = useState(user.name);
+  // const [email] = useState(user.email);
+  // const [product, setProduct] = useState('iPhone');
+  // const [description, setDescription] = useState('');
+  const [title, setTitle] = useState('');
+  const [company, setCompany] = useState('');
+  const [summary, setSummary] = useState('');
+  const [situation, setSituation] = useState('');
+  const [task, setTask] = useState('');
+  const [action, setAction] = useState('');
+  const [resolution, setResolution] = useState('');
+  const [stakeholders, setStakeholders] = useState('');
+  const [metrics, setMetrics] = useState('');
+  const [takeaways, setTakeaways] = useState('');
+  const [tag, setTag] = useState('Web');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,7 +45,23 @@ function NewProject() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createProject({ product, description }));
+    dispatch(
+      createProject({
+        // product,
+        // description,
+        title,
+        company,
+        summary,
+        situation,
+        task,
+        action,
+        resolution,
+        stakeholders,
+        metrics,
+        takeaways,
+        tag,
+      })
+    );
   };
 
   if (isLoading) {
@@ -48,16 +75,16 @@ function NewProject() {
         <p>Please fill out the form below</p>
       </section>
       <section className="form">
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="name">Customer Name</label>
           <input type="text" className="form-control" value={name} disabled />
         </div>
         <div className="form-group">
           <label htmlFor="email">Customer Email</label>
           <input type="text" className="form-control" value={email} disabled />
-        </div>
+        </div> */}
         <form onSubmit={onSubmit}>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="product">Product</label>
             <select
               name="product"
@@ -81,6 +108,112 @@ function NewProject() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
+          </div> */}
+          <div className="form-group">
+            <label htmlFor="title">Project Title</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="company">Company Name</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="summary">Summary</label>
+            <textarea
+              name="summary"
+              id="summary"
+              className="form-control"
+              placeholder="What is the project about? Why is worth sharing? Bonus: Turn this into an elevator pitch."
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="situation">STAR Description</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Situation"
+              value={situation}
+              onChange={(e) => setSituation(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Task"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Action"
+              value={action}
+              onChange={(e) => setAction(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Resolution"
+              value={resolution}
+              onChange={(e) => setResolution(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="stakeholders">Key Stakeholders</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="List the stakeholders you interacted with (i.e., Data Scientists, Marketing SMM, etc.)"
+              value={stakeholders}
+              onChange={(e) => setStakeholders(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="metrics">Metrics</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="How did you measure success? if NA, what metrics would you have used?"
+              value={metrics}
+              onChange={(e) => setMetrics(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="takeways">Key Takeaways</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="What did you learn? What went wrong? What would you have done differently?"
+              value={takeaways}
+              onChange={(e) => setTakeaways(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="tagt">Tag</label>
+            <select
+              name="tag"
+              id="tag"
+              value={tag}
+              onChange={(e) => setTag(e.target.value)}
+            >
+              <option value="Ops Process">Ops Process</option>
+              <option value="Web">Web</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div className="form-group">
             <button className="btn btn-block">Submit</button>

@@ -10,7 +10,7 @@ const initialState = {
   message: '',
 };
 
-//Create new ticket
+//Create new project
 export const createProject = createAsyncThunk(
   'projects/create',
   async (projectData, thunkAPI) => {
@@ -31,7 +31,7 @@ export const createProject = createAsyncThunk(
   }
 );
 
-//Get user tickets
+//Get user projects
 export const getProjects = createAsyncThunk(
   'projects/getAll',
   async (_, thunkAPI) => {
@@ -52,7 +52,7 @@ export const getProjects = createAsyncThunk(
   }
 );
 
-//Get user ticket
+//Get user project
 export const getProject = createAsyncThunk(
   'projects/get',
   async (projectId, thunkAPI) => {

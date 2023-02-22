@@ -35,10 +35,13 @@ function Projects() {
       <h1>Projects</h1>
       <div className="projects">
         <div className="project-headings">
-          <div>Date</div>
-          <div>Products</div>
-          <div>Status</div>
-          <div></div>
+          {/* <div>Date</div> */}
+          {/* <div>Products</div> */}
+          <div>Title</div>
+          <div>Type</div>
+          <div>Info</div>
+          {/* <div>Status</div> */}
+          {/* <div></div> */}
         </div>
         {projects.map((project) => (
           <ProjectItem key={project._id} project={project} />

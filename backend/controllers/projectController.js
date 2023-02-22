@@ -51,11 +51,30 @@ const getProject = asyncHandler(async (req, res) => {
 //@Route POST /api/projects
 //@access Private
 const createProject = asyncHandler(async (req, res) => {
-  const { product, description } = req.body;
+  const {
+    // product,
+    // description,
+    title,
+    company,
+    summary,
+    situation,
+    task,
+    action,
+    resolution,
+    stakeholders,
+    metrics,
+    takeaways,
+    tag,
+  } = req.body;
 
-  if (!product || !description) {
+  // if (!product || !description) {
+  //   res.status(400);
+  //   throw new Error('Please add a product and description');
+  // }
+
+  if (!title) {
     res.status(400);
-    throw new Error('Please add a product and description');
+    throw new Error('Please add a project title');
   }
 
   // Get user using the id in the JWT
@@ -67,10 +86,21 @@ const createProject = asyncHandler(async (req, res) => {
   }
 
   const project = await Project.create({
-    product,
-    description,
+    // product,
+    // description,
+    title,
+    company,
+    summary,
+    situation,
+    task,
+    action,
+    resolution,
+    stakeholders,
+    metrics,
+    takeaways,
     user: req.user.id,
     status: 'new',
+    tag,
   });
 
   res.status(201).json(project);
