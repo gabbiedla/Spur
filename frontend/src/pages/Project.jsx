@@ -91,46 +91,53 @@ function Project() {
           <span>{project.company}</span>
         </h3>
         <hr />
-        <div className="project-desc">
-          <h3>Summary</h3>
-          <p>{project.summary}</p>
-          {/* <h3>Description of the Issue</h3>
+        <div className="project-container">
+          <div className="project-desc">
+            <h3>Summary</h3>
+            <p>{project.summary}</p>
+            {/* <h3>Description of the Issue</h3>
           <p> {project.description}</p> */}
+          </div>
+          <div className="project-desc">
+            <h3>STAR</h3>
+            <h4>Situation</h4>
+            <p>{project.situation}</p>
+            <h4>Task</h4>
+            <p>{project.task}</p>
+            <h4>Action</h4>
+            <p>{project.action}</p>
+            <h4>Resolution</h4>
+            <p>{project.Resolution}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Metrics</h3>
+            <p>{project.metrics}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Key Stakeholders</h3>
+            <p>{project.stakeholders}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Key Learnings</h3>
+            <p>{project.takeaways}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Resources</h3>
+            <h4>Links</h4>
+            {/* <a>{project.resources}</a> */}
+            <a
+              href={project.resources}
+              target="_blank"
+              style={{ color: 'blue' }}
+            >
+              {project.resources}
+            </a>
+            {/* <h4>Images</h4>
+          <img src={project.files} alt="no image found" /> */}
+          </div>
         </div>
-        <div className="project-desc">
-          <h3>STAR</h3>
-          <h4>Situation</h4>
-          <p>{project.situation}</p>
-          <h4>Task</h4>
-          <p>{project.task}</p>
-          <h4>Action</h4>
-          <p>{project.action}</p>
-          <h4>Resolution</h4>
-          <p>{project.Resolution}</p>
-        </div>
-        <div className="project-desc">
-          <h3>Metrics</h3>
-          <p>{project.metrics}</p>
-        </div>
-        <div className="project-desc">
-          <h3>Key Stakeholders</h3>
-          <p>{project.stakeholders}</p>
-        </div>
-        <div className="project-desc">
-          <h3>Key Learnings</h3>
-          <p>{project.takeaways}</p>
-        </div>
-        <div className="project-desc">
-          <h3>Resources</h3>
-          <h4>Links</h4>
-          {/* <a>{project.resources}</a> */}
-          <a href={project.resources} target="_blank" style={{ color: 'blue' }}>
-            {project.resources}
-          </a>
-          <h4>Images</h4>
-          <img src={project.files} alt="no image found" />
-        </div>
-        <h2>Notes</h2>
+        <hr className="note-line" />
+        <h2 className="notes-section">Notes</h2>
       </header>
       {/* comment off for add button */}
       {/* {project.status !== 'closed' && (

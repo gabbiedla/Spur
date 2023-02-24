@@ -189,7 +189,7 @@ function NewProject() {
           </div>
           <div className="form-group">
             <label htmlFor="stakeholders">Key Stakeholders</label>
-            <input
+            <textarea
               type="text"
               className="form-control"
               placeholder="List the stakeholders you interacted with (i.e., Data Scientists, Marketing SMM, etc.)"
@@ -199,7 +199,7 @@ function NewProject() {
           </div>
           <div className="form-group">
             <label htmlFor="metrics">Metrics</label>
-            <input
+            <textarea
               type="text"
               className="form-control"
               placeholder="How did you measure success? if NA, what metrics would you have used?"
@@ -209,7 +209,7 @@ function NewProject() {
           </div>
           <div className="form-group">
             <label htmlFor="takeways">Key Takeaways</label>
-            <input
+            <textarea
               type="text"
               className="form-control"
               placeholder="What did you learn? What went wrong? What would you have done differently?"
@@ -241,15 +241,15 @@ function NewProject() {
               value={resourcesy}
               onChange={(e) => setResources(e.target.value)}
             ></textarea> */}
-            <input
+            <textarea
               type="url"
               className="form-control"
-              placeholder="add stuff"
+              placeholder="List related resources"
               value={resources}
               onChange={(e) => setResources(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="files">Files</label>
             <input
               type="file"
@@ -260,7 +260,7 @@ function NewProject() {
               value={files}
               onChange={(e) => setFiles(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <button className="btn btn-block">Submit</button>
           </div>

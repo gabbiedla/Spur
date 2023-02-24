@@ -281,13 +281,33 @@ h3 {
   margin-top: 30px;
 }
 
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
 .project-desc {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   font-size: 17px;
   background-color: #f4f4f4;
   border: 1px #ccc solid;
   padding: 10px 15px;
   border-radius: 5px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.project-desc1 {
+  margin: 20px 0 0 0;
+  font-size: 17px;
+  background-color: #f4f4f4;
+  border: 1px #ccc solid;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 50%;
+  word-wrap: break-word;
 }
 
 .note {
@@ -313,6 +333,14 @@ h3 {
   top: 15px;
   right: 10px;
   font-size: 14px;
+}
+
+.notes-section {
+  margin-top: 10px;
+}
+
+.note-line {
+  margin-top: 20px;
 }
 
 .delete-note {
