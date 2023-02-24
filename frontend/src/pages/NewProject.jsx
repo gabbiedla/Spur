@@ -18,6 +18,7 @@ function NewProject() {
   // const [product, setProduct] = useState('iPhone');
   // const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
+  const [date, setDate] = useState('Web');
   const [company, setCompany] = useState('');
   const [summary, setSummary] = useState('');
   const [situation, setSituation] = useState('');
@@ -28,6 +29,7 @@ function NewProject() {
   const [metrics, setMetrics] = useState('');
   const [takeaways, setTakeaways] = useState('');
   const [tag, setTag] = useState('Web');
+  const [resources, setResources] = useState('Web');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,6 +52,7 @@ function NewProject() {
         // product,
         // description,
         title,
+        date,
         company,
         summary,
         situation,
@@ -60,6 +63,7 @@ function NewProject() {
         metrics,
         takeaways,
         tag,
+        resources,
       })
     );
   };
@@ -117,6 +121,16 @@ function NewProject() {
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="date">Year Created</label>
+            <input
+              type="date"
+              className="form-control"
+              placeholder="Year"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -202,7 +216,7 @@ function NewProject() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="tagt">Tag</label>
+            <label htmlFor="tag">Tag</label>
             <select
               name="tag"
               id="tag"
@@ -214,6 +228,24 @@ function NewProject() {
               <option value="Mobile">Mobile</option>
               <option value="Other">Other</option>
             </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="resources">Resources</label>
+            {/* <textarea
+              name="resources"
+              id="resources"
+              className="form-control"
+              placeholder="Include links to figma link"
+              value={resourcesy}
+              onChange={(e) => setResources(e.target.value)}
+            ></textarea> */}
+            <input
+              type="url"
+              className="form-control"
+              placeholder="add stuff"
+              value={resources}
+              onChange={(e) => setResources(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <button className="btn btn-block">Submit</button>

@@ -78,19 +78,57 @@ function Project() {
       <header className="project-header">
         <BackButton url="/projects" />
         <h2>
-          Project ID: {project._id}
-          <span className={`status status-${project.status}`}>
+          {/* Project ID: {project._id} */}
+          Project Name: {project.title}
+          {/* <span className={`status status-${project.status}`}>
             {project.status}
-          </span>
+          </span> */}
+          <span>{project.tag}</span>
         </h2>
         <h3>
-          Date Submitted: {new Date(project.createAt).toLocaleString('en-US')}
+          Date Created: {new Date(project.date).toLocaleDateString('en-US')}
+          {/* Date Submitted: {new Date(project.createAt).toLocaleString('en-US')} */}
+          <span>{project.company}</span>
         </h3>
         <hr />
         <div className="project-desc">
-          <h3>Description of the Issue</h3>
-          <p> {project.description}</p>
+          <h3>Summary</h3>
+          <p>{project.summary}</p>
+          {/* <h3>Description of the Issue</h3>
+          <p> {project.description}</p> */}
         </div>
+        <div className="project-desc">
+          <h3>STAR</h3>
+          <h4>Situation</h4>
+          <p>{project.situation}</p>
+          <h4>Task</h4>
+          <p>{project.task}</p>
+          <h4>Action</h4>
+          <p>{project.action}</p>
+          <h4>Resolution</h4>
+          <p>{project.Resolution}</p>
+        </div>
+        <div className="project-desc">
+          <h3>Metrics</h3>
+          <p>{project.metrics}</p>
+        </div>
+        <div className="project-desc">
+          <h3>Key Stakeholders</h3>
+          <p>{project.stakeholders}</p>
+        </div>
+        <div className="project-desc">
+          <h3>Key Learnings</h3>
+          <p>{project.takeaways}</p>
+        </div>
+        <div className="project-desc">
+          <h3>Resources</h3>
+          <h4>Links</h4>
+          {/* <a>{project.resources}</a> */}
+          <a href={project.resources} target="_blank" style={{ color: 'blue' }}>
+            {project.resources}
+          </a>
+        </div>
+
         <h2>Notes</h2>
       </header>
       {/* comment off for add button */}

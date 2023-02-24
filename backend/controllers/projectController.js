@@ -55,6 +55,7 @@ const createProject = asyncHandler(async (req, res) => {
     // product,
     // description,
     title,
+    date,
     company,
     summary,
     situation,
@@ -65,6 +66,8 @@ const createProject = asyncHandler(async (req, res) => {
     metrics,
     takeaways,
     tag,
+    resources,
+    status,
   } = req.body;
 
   // if (!product || !description) {
@@ -89,6 +92,7 @@ const createProject = asyncHandler(async (req, res) => {
     // product,
     // description,
     title,
+    date,
     company,
     summary,
     situation,
@@ -101,6 +105,7 @@ const createProject = asyncHandler(async (req, res) => {
     user: req.user.id,
     status: 'new',
     tag,
+    resources,
   });
 
   res.status(201).json(project);

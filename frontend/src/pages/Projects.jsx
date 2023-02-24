@@ -37,6 +37,7 @@ function Projects() {
         <div className="project-headings">
           {/* <div>Date</div> */}
           {/* <div>Products</div> */}
+          <div>Date</div>
           <div>Title</div>
           <div>Type</div>
           <div>Info</div>

@@ -19,6 +19,9 @@ const projectSchema = mongoose.Schema(
     title: {
       type: String,
     },
+    date: {
+      type: Date,
+    },
     company: {
       type: String,
     },
@@ -49,6 +52,9 @@ const projectSchema = mongoose.Schema(
     tag: {
       type: String,
       enum: ['Ops Process', 'Web', 'Mobile', 'Other'],
+    },
+    resources: {
+      type: String,
     },
     status: {
       type: String,
