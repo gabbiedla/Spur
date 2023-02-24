@@ -56,6 +56,9 @@ const projectSchema = mongoose.Schema(
     resources: {
       type: String,
     },
+    files: {
+      type: String,
+    },
     status: {
       type: String,
       required: true,

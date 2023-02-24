@@ -29,7 +29,8 @@ function NewProject() {
   const [metrics, setMetrics] = useState('');
   const [takeaways, setTakeaways] = useState('');
   const [tag, setTag] = useState('Web');
-  const [resources, setResources] = useState('Web');
+  const [resources, setResources] = useState('');
+  const [files, setFiles] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ function NewProject() {
         takeaways,
         tag,
         resources,
+        files,
       })
     );
   };
@@ -245,6 +247,18 @@ function NewProject() {
               placeholder="add stuff"
               value={resources}
               onChange={(e) => setResources(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="files">Files</label>
+            <input
+              type="file"
+              className="form-control"
+              name="file"
+              multiple
+              // placeholder=""
+              value={files}
+              onChange={(e) => setFiles(e.target.value)}
             />
           </div>
           <div className="form-group">

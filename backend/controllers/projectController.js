@@ -67,6 +67,7 @@ const createProject = asyncHandler(async (req, res) => {
     takeaways,
     tag,
     resources,
+    files,
     status,
   } = req.body;
 
@@ -106,6 +107,7 @@ const createProject = asyncHandler(async (req, res) => {
     status: 'new',
     tag,
     resources,
+    files,
   });
 
   res.status(201).json(project);

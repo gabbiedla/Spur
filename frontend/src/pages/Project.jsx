@@ -127,8 +127,9 @@ function Project() {
           <a href={project.resources} target="_blank" style={{ color: 'blue' }}>
             {project.resources}
           </a>
+          <h4>Images</h4>
+          <img src={project.files} alt="no image found" />
         </div>
-
         <h2>Notes</h2>
       </header>
       {/* comment off for add button */}
