@@ -20,7 +20,7 @@ const getInterviews = asyncHandler(async (req, res) => {
   res.status(200).json(interviews);
 });
 
-//@desc get user interviews
+//@desc get user interview
 //@Route GET /api/interviews/:id
 //@access Private
 const getInterview = asyncHandler(async (req, res) => {
@@ -51,29 +51,14 @@ const getInterview = asyncHandler(async (req, res) => {
 //@Route POST /api/interview
 //@access Private
 const createInterview = asyncHandler(async (req, res) => {
-  const {
-    job_title,
-    company,
-    job_link,
-    interviewer_name,
-    interview_date,
-    pitch,
-    why_me1,
-    why_me2,
-    why_me3,
-    description,
-    resaearch_notes,
-    questions,
-    desired_salary,
-    stages,
-  } = req.body;
+  const { title, date, stages } = req.body;
 
   // if (!project || !description) {
   //   res.status(400);
   //   throw new Error('Please add a product and description');
   // }
 
-  if (!job_title) {
+  if (!title) {
     res.status(400);
     throw new Error('Please add a job title');
   }
@@ -87,19 +72,9 @@ const createInterview = asyncHandler(async (req, res) => {
   }
 
   const interview = await Interview.create({
-    job_title,
-    company,
-    job_link,
-    interviewer_name,
-    interview_date,
-    pitch,
-    why_me1,
-    why_me2,
-    why_me3,
-    description,
-    resaearch_notes,
-    questions,
-    desired_salary,
+    title,
+    date,
+    user: req.user.id,
     stages: 'First',
   });
 

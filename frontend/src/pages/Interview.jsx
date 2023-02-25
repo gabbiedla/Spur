@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 import { FaPlus } from 'react-icons/fa';
-import { useSelector, useDis, useDispatch } from 'react-redux';
-import { getInterview } from '../features/interviews/interviewSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getInterview, reset } from '../features/interviews/interviewSlice';
 import {
   getNotes,
   createNote,
@@ -79,62 +79,24 @@ function Interview() {
         <BackButton url="/interviews" />
         <h2>
           {/* Project ID: {project._id} */}
-          Project Name: {interview.job_title}
+          Interview Name: {interview.title}
           {/* <span className={`status status-${project.status}`}>
             {project.status}
           </span> */}
           <span>{interview.stages}</span>
         </h2>
         <h3>
-          Date Created:{' '}
-          {new Date(interview.interview_date).toLocaleDateString('en-US')}
+          Interview Date: {new Date(interview.date).toLocaleDateString('en-US')}
           {/* Date Submitted: {new Date(project.createAt).toLocaleString('en-US')} */}
           {/* <span>{project.company}</span> */}
         </h3>
         <hr />
-        {/* <div className="project-container">
+        <div className="project-container">
           <div className="project-desc">
             <h3>Summary</h3>
-            <p>{project.summary}</p>
-           
+            <p>{interview.stages}</p>
           </div>
-          <div className="project-desc">
-            <h3>STAR</h3>
-            <h4>Situation</h4>
-            <p>{project.situation}</p>
-            <h4>Task</h4>
-            <p>{project.task}</p>
-            <h4>Action</h4>
-            <p>{project.action}</p>
-            <h4>Resolution</h4>
-            <p>{project.Resolution}</p>
-          </div>
-          <div className="project-desc1">
-            <h3>Metrics</h3>
-            <p>{project.metrics}</p>
-          </div>
-          <div className="project-desc1">
-            <h3>Key Stakeholders</h3>
-            <p>{project.stakeholders}</p>
-          </div>
-          <div className="project-desc1">
-            <h3>Key Learnings</h3>
-            <p>{project.takeaways}</p>
-          </div>
-          <div className="project-desc1">
-            <h3>Resources</h3>
-            <h4>Links</h4>
-           
-            <a
-              href={project.resources}
-              target="_blank"
-              style={{ color: 'blue' }}
-            >
-              {project.resources}
-            </a>
-          
-          </div>
-        </div> */}
+        </div>
         <hr className="note-line" />
         <h2 className="notes-section">Notes</h2>
       </header>
@@ -180,9 +142,9 @@ function Interview() {
         </form>
       </Modal>
 
-      {notes.map((note) => (
+      {/* {notes.map((note) => (
         <NoteItem key={note._id} note={note} />
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -99,7 +99,7 @@ export const interviewSlice = createSlice({
       .addCase(getInterviews.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.projects = action.payload;
+        state.interviews = action.payload; ///// THIS IS WHERE I SPENT HOURS ON
       })
       .addCase(getInterviews.rejected, (state, action) => {
         state.isLoading = false;
@@ -112,7 +112,7 @@ export const interviewSlice = createSlice({
       .addCase(getInterview.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.project = action.payload;
+        state.interview = action.payload; ////// THIS TOOO
       })
       .addCase(getInterview.rejected, (state, action) => {
         state.isLoading = false;

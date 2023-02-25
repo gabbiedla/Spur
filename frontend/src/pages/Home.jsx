@@ -1,11 +1,5 @@
 import { Link } from 'react-router-dom';
-import {
-  FaQuestionCircle,
-  FaTicketAlt,
-  FaEye,
-  FaList,
-  FaPlusCircle,
-} from 'react-icons/fa';
+import { FaEye, FaList, FaPlusCircle } from 'react-icons/fa';
 
 function Home() {
   return (

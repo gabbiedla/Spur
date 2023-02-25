@@ -11,11 +11,9 @@ function InterviewItem({ interview }) {
         View
       </Link> */}
       {/* <div>{new Date(project.createdAt).toLocaleString('en-US')}</div> */}
-      <div>
-        {new Date(interview.interview_date).toLocaleDateString('en-US')}
-      </div>
-      <div>{interview.job_title}</div>
+      <div>{interview.title}</div>
       <div>{interview.stages}</div>
+      <div>{new Date(interview.date).toLocaleDateString('en-US')}</div>
       {/* <div className={`status status-${project.status}`}>{project.status}</div> */}
       <Link
         to={`/interview/${interview._id}`}

@@ -7,7 +7,7 @@ const interviewSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    job_title: {
+    title: {
       type: String,
     },
     company: {
@@ -19,7 +19,7 @@ const interviewSchema = mongoose.Schema(
     interviewer_name: {
       type: String,
     },
-    interview_date: {
+    date: {
       type: Date,
     },
     pitch: {
