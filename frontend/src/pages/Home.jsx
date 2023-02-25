@@ -23,11 +23,11 @@ function Home() {
         <FaEye /> View My Projects
       </Link>
 
-      <Link to="/projects" className="btn btn-reverse btn-block">
+      <Link to="/new-interview" className="btn btn-reverse btn-block">
         <FaList /> Prep For Interview
       </Link>
 
-      <Link to="/projects" className="btn btn-block">
+      <Link to="/interviews" className="btn btn-block">
         <FaEye /> View Interview Preps
       </Link>
     </>
