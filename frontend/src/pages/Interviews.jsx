@@ -35,7 +35,7 @@ function Interviews() {
       <h1>Interviews</h1>
       <div className="projects">
         <div className="project-headings">
-          <div>Title</div>
+          <div>Role</div>
           <div>Stage</div>
           <div>Date</div>
           <div></div>

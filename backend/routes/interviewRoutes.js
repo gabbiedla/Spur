@@ -12,8 +12,8 @@ const { protect } = require('../middleware/authMiddleware');
 const { update } = require('../models/userModel'); //what is this
 
 //reroute into note router
-const noteRouter = require('./noteRoutes');
-router.use('/:interviewId/notes', noteRouter);
+const intnoteRouter = require('./intnoteRoutes');
+router.use('/:interviewId/intnotes', intnoteRouter);
 
 router.route('/').get(protect, getInterviews).post(protect, createInterview);
 

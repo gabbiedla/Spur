@@ -288,6 +288,17 @@ h3 {
   flex-direction: row;
 }
 
+.project-title {
+  margin: 20px 0 0 0;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%;
+  /* word-wrap: break-word; */
+}
+
 .project-desc {
   margin: 20px 0 0 0;
   font-size: 17px;
@@ -307,6 +318,17 @@ h3 {
   padding: 10px 15px;
   border-radius: 5px;
   width: 49%;
+  word-wrap: break-word;
+}
+
+.project-desc2 {
+  margin: 20px 0 0 0;
+  font-size: 17px;
+  background-color: #f4f4f4;
+  border: 1px #ccc solid;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 32%;
   word-wrap: break-word;
 }
 

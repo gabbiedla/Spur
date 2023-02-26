@@ -7,13 +7,13 @@ const interviewSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    title: {
+    role: {
       type: String,
     },
     company: {
       type: String,
     },
-    job_link: {
+    link: {
       type: String,
     },
     interviewer_name: {
@@ -24,29 +24,31 @@ const interviewSchema = mongoose.Schema(
     },
     pitch: {
       type: String,
+      default:
+        'I am a product manager in the B2B space. As a former operations leader in micromobility, I have experience in market launches, managing image recognition product tools, and scaling international support teams. I enjoy working on web development projects outside of work.',
     },
-    why_me1: {
+    why1: {
       type: String,
     },
-    why_me2: {
+    why2: {
       type: String,
     },
-    why_me3: {
+    why3: {
       type: String,
     },
     description: {
       type: String,
     },
-    research_notes: {
+    info: {
       type: String,
     },
     questions: {
       type: String,
     },
     desired_salary: {
-      type: String,
+      type: Number,
     },
-    stages: {
+    stage: {
       type: String,
       required: true,
       enum: ['First', 'Second', 'Third', 'Fourth', 'Final', 'Not Selected'],

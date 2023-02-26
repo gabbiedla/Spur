@@ -51,16 +51,31 @@ const getInterview = asyncHandler(async (req, res) => {
 //@Route POST /api/interview
 //@access Private
 const createInterview = asyncHandler(async (req, res) => {
-  const { title, date, stages } = req.body;
+  const {
+    role,
+    company,
+    link,
+    interviewer_name,
+    date,
+    pitch,
+    why1,
+    why2,
+    why3,
+    description,
+    info,
+    questions,
+    desired_salary,
+    stage,
+  } = req.body;
 
   // if (!project || !description) {
   //   res.status(400);
   //   throw new Error('Please add a product and description');
   // }
 
-  if (!title) {
+  if (!role) {
     res.status(400);
-    throw new Error('Please add a job title');
+    throw new Error('Please add a job role');
   }
 
   // Get user using the id in the JWT
@@ -72,10 +87,21 @@ const createInterview = asyncHandler(async (req, res) => {
   }
 
   const interview = await Interview.create({
-    title,
+    role,
+    company,
+    link,
+    interviewer_name,
     date,
+    pitch,
+    why1,
+    why2,
+    why3,
+    description,
+    info,
+    questions,
+    desired_salary,
     user: req.user.id,
-    stages: 'First',
+    stage: 'First',
   });
 
   res.status(201).json(interview);

@@ -5,14 +5,14 @@ import { FaPlus } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { getInterview, reset } from '../features/interviews/interviewSlice';
 import {
-  getNotes,
-  createNote,
-  reset as notesReset,
-} from '../features/notes/noteSlice';
+  getIntNotes,
+  createIntNote,
+  reset as intnotesReset,
+} from '../features/intnotes/intnoteSlice';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
-import NoteItem from '../components/NoteItem';
+import IntNoteItem from '../components/IntNoteItem';
 
 const customStyles = {
   content: {
@@ -32,14 +32,14 @@ Modal.setAppElement('#root');
 function Interview() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [noteText, setNoteText] = useState('');
+  const [intnoteText, setIntNoteText] = useState('');
 
   const { interview, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.interviews
   );
 
-  const { notes, isLoading: notesIsLoading } = useSelector(
-    (state) => state.notes
+  const { intnotes, isLoading: intnotesIsLoading } = useSelector(
+    (state) => state.intnotes
   );
 
   const params = useParams();
@@ -50,14 +50,14 @@ function Interview() {
       toast.error(message);
     }
     dispatch(getInterview(interviewId));
-    dispatch(getNotes(interviewId));
+    dispatch(getIntNotes(interviewId));
     // eslint-disable-next-line
   }, [isError, message, interviewId]);
 
   //create note submit
-  const onNoteSubmit = (e) => {
+  const onIntNoteSubmit = (e) => {
     e.preventDefault();
-    dispatch(createNote({ noteText, interviewId }));
+    dispatch(createIntNote({ intnoteText, interviewId }));
     closeModal();
   };
 
@@ -65,7 +65,7 @@ function Interview() {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
-  if (isLoading || notesIsLoading) {
+  if (isLoading || intnotesIsLoading) {
     return <Spinner />;
   }
 
@@ -78,23 +78,59 @@ function Interview() {
       <header className="project-header">
         <BackButton url="/interviews" />
         <h2>
-          {/* Project ID: {project._id} */}
-          Interview Name: {interview.title}
+          Job Title: {interview.role}
           {/* <span className={`status status-${project.status}`}>
             {project.status}
           </span> */}
-          <span>{interview.stages}</span>
+          <span>Company: {interview.company}</span>
+          {/* <span>Link: {interview.link}</span> */}
+          <span>Round: {interview.stage}</span>
         </h2>
-        <h3>
-          Interview Date: {new Date(interview.date).toLocaleDateString('en-US')}
-          {/* Date Submitted: {new Date(project.createAt).toLocaleString('en-US')} */}
-          {/* <span>{project.company}</span> */}
-        </h3>
+        {/* <h3>
+          <span>Interviewer Name: {interview.interviewer_name}</span>
+          <span>
+            Interview Date:{' '}
+            {new Date(interview.date).toLocaleDateString('en-US')}
+          </span>
+          <span>
+            Date Submitted: {new Date(project.createAt).toLocaleString('en-US')}
+          </span>
+        </h3> */}
         <hr />
         <div className="project-container">
+          <h3 className="project-title">Why Me</h3>
           <div className="project-desc">
-            <h3>Summary</h3>
-            <p>{interview.stages}</p>
+            <h3>Pitch</h3>
+            <p>{interview.pitch}</p>
+          </div>
+          <div className="project-desc2">
+            <h3>Why do you want this job?</h3>
+            <p>{interview.why1}</p>
+          </div>
+          <div className="project-desc2">
+            <h3>Why am I a good fit?</h3>
+            <p>{interview.why2}</p>
+          </div>
+          <div className="project-desc2">
+            <h3>Why hire me?</h3>
+            <p>{interview.why3}</p>
+          </div>
+          <h3 className="project-title">Company Research</h3>
+          <div className="project-desc1">
+            <h3>Description</h3>
+            <p>{interview.description}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Notes/Concerns</h3>
+            <p>{interview.info}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Questions</h3>
+            <p>{interview.questions}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Desired Salary</h3>
+            <p>{interview.desired_salary}</p>
           </div>
         </div>
         <hr className="note-line" />
@@ -123,15 +159,15 @@ function Interview() {
         <button className="btn-close" onClick={closeModal}>
           X
         </button>
-        <form onSubmit={onNoteSubmit}>
+        <form onSubmit={onIntNoteSubmit}>
           <div className="form-group">
             <textarea
-              name="noteText"
-              id="noteText"
+              name="intnoteText"
+              id="intnoteText"
               className="form-control"
               placeholder="Note text"
-              value={noteText}
-              onChange={(e) => setNoteText(e.target.value)}
+              value={intnoteText}
+              onChange={(e) => setIntNoteText(e.target.value)}
             ></textarea>
           </div>
           <div className="form-group">
@@ -141,10 +177,9 @@ function Interview() {
           </div>
         </form>
       </Modal>
-
-      {/* {notes.map((note) => (
-        <NoteItem key={note._id} note={note} />
-      ))} */}
+      {intnotes.map((intnote) => (
+        <IntNoteItem key={intnote._id} intnote={intnote} />
+      ))}
     </div>
   );
 }

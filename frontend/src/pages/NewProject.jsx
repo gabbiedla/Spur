@@ -18,7 +18,7 @@ function NewProject() {
   // const [product, setProduct] = useState('iPhone');
   // const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
-  const [date, setDate] = useState('Web');
+  const [date, setDate] = useState('');
   const [company, setCompany] = useState('');
   const [summary, setSummary] = useState('');
   const [situation, setSituation] = useState('');
