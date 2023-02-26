@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import IntNoteItem from '../components/IntNoteItem';
+import Test from './Test';
 
 const customStyles = {
   content: {
@@ -115,6 +116,8 @@ function Interview() {
             <h3>Why hire me?</h3>
             <p>{interview.why3}</p>
           </div>
+          <h3 className="project-title">Projects</h3>
+          <Test />
           <h3 className="project-title">Company Research</h3>
           <div className="project-desc1">
             <h3>Description</h3>

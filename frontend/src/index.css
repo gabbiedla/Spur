@@ -222,7 +222,29 @@ h3 {
   text-align: center;
 }
 
+.project1,
+.project-headings1 {
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px 0 0 0;
+  font-size: 17px;
+  background-color: #f4f4f4;
+  border: 1px #ccc solid;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 32%;
+  word-wrap: break-word;
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+}
+
 .project-headings {
+  font-weight: 700;
+}
+
+.project-headings1 {
   font-weight: 700;
 }
 
@@ -288,6 +310,13 @@ h3 {
   flex-direction: row;
 }
 
+.project-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .project-title {
   margin: 20px 0 0 0;
   font-size: 17px;
@@ -329,6 +358,16 @@ h3 {
   padding: 10px 15px;
   border-radius: 5px;
   width: 32%;
+  word-wrap: break-word;
+}
+
+.project-desc3 {
+  margin: 20px 0 0 0;
+  font-size: 17px;
+  background-color: #f4f4f4;
+  border: 1px #ccc solid;
+  padding: 10px 15px;
+  border-radius: 5px;
   word-wrap: break-word;
 }
 
