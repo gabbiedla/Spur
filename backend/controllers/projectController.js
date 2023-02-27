@@ -62,13 +62,13 @@ const createProject = asyncHandler(async (req, res) => {
     task,
     action,
     resolution,
+    impact,
     stakeholders,
     metrics,
     takeaways,
     tag,
     resources,
     files,
-    status,
   } = req.body;
 
   // if (!product || !description) {
@@ -100,11 +100,11 @@ const createProject = asyncHandler(async (req, res) => {
     task,
     action,
     resolution,
+    impact,
     stakeholders,
     metrics,
     takeaways,
     user: req.user.id,
-    status: 'new',
     tag,
     resources,
     files,

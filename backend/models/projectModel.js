@@ -40,6 +40,9 @@ const projectSchema = mongoose.Schema(
     resolution: {
       type: String,
     },
+    impact: {
+      type: String,
+    },
     stakeholders: {
       type: String,
     },
@@ -59,12 +62,12 @@ const projectSchema = mongoose.Schema(
     files: {
       type: String,
     },
-    status: {
-      type: String,
-      required: true,
-      enum: ['new', 'open', 'closed'],
-      default: 'new',
-    },
+    // status: {
+    //   type: String,
+    //   required: true,
+    //   enum: ['new', 'open', 'closed'],
+    //   default: 'new',
+    // },
   },
   {
     timestamps: true,

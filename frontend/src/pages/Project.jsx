@@ -11,6 +11,7 @@ import {
 } from '../features/notes/noteSlice';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+import EditButton from '../components/EditButton';
 import Spinner from '../components/Spinner';
 import NoteItem from '../components/NoteItem';
 
@@ -76,6 +77,8 @@ function Project() {
   return (
     <div className="project-page">
       <header className="project-header">
+        <EditButton url="" />
+
         <BackButton url="/projects" />
         <h2>
           {/* Project ID: {project._id} */}
@@ -83,7 +86,8 @@ function Project() {
           {/* <span className={`status status-${project.status}`}>
             {project.status}
           </span> */}
-          <span>{project.tag}</span>
+          <span className={`tag tag-${project.tag}`}>{project.tag}</span>
+          {/* <span>{project.tag}</span> */}
         </h2>
         <h3>
           Date Created: {new Date(project.date).toLocaleDateString('en-US')}
@@ -107,7 +111,11 @@ function Project() {
             <h4>Action</h4>
             <p>{project.action}</p>
             <h4>Resolution</h4>
-            <p>{project.Resolution}</p>
+            <p>{project.resolution}</p>
+          </div>
+          <div className="project-desc1">
+            <h3>Impact</h3>
+            <p>{project.impact}</p>
           </div>
           <div className="project-desc1">
             <h3>Metrics</h3>

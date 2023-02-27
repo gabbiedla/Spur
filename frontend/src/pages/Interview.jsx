@@ -11,6 +11,7 @@ import {
 } from '../features/intnotes/intnoteSlice';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+import EditButton from '../components/EditButton';
 import Spinner from '../components/Spinner';
 import IntNoteItem from '../components/IntNoteItem';
 import Test from './Test';
@@ -77,6 +78,7 @@ function Interview() {
   return (
     <div className="project-page">
       <header className="project-header">
+        <EditButton url="" />
         <BackButton url="/interviews" />
         <h2>
           Job Title: {interview.role}

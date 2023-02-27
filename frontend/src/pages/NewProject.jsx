@@ -25,6 +25,7 @@ function NewProject() {
   const [task, setTask] = useState('');
   const [action, setAction] = useState('');
   const [resolution, setResolution] = useState('');
+  const [impact, setImpact] = useState('');
   const [stakeholders, setStakeholders] = useState('');
   const [metrics, setMetrics] = useState('');
   const [takeaways, setTakeaways] = useState('');
@@ -185,6 +186,16 @@ function NewProject() {
               placeholder="Resolution"
               value={resolution}
               onChange={(e) => setResolution(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="impact">Impact</label>
+            <textarea
+              type="text"
+              className="form-control"
+              placeholder="What was the impact/result of the project?"
+              value={impact}
+              onChange={(e) => setImpact(e.target.value)}
             />
           </div>
           <div className="form-group">

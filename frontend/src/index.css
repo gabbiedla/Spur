@@ -248,7 +248,18 @@ h3 {
   font-weight: 700;
 }
 
-.status {
+/* .status {
+  background-color: #333;
+  color: #fff;
+  width: 100px;
+  padding: 0 20px;
+  justify-self: center;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+} */
+
+.tag {
   background-color: #333;
   color: #fff;
   width: 100px;
@@ -259,7 +270,7 @@ h3 {
   text-align: center;
 }
 
-.status-new {
+/* .status-new {
   background-color: green;
   color: #fff;
   border-radius: 10px;
@@ -275,6 +286,55 @@ h3 {
   background-color: darkred;
   color: #fff;
   border-radius: 10px;
+} */
+
+.stage-first {
+  background-color: grey;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.stage-second {
+  background-color: orange;
+  color: #fff;
+  border-radius: 10px;
+}
+.stage-third {
+  background-color: yellow;
+  color: #fff;
+  border-radius: 10px;
+}
+.stage-fourth {
+  background-color: yellowgreen;
+  color: #fff;
+  border-radius: 10px;
+}
+.stage-final {
+  background-color: green;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.stage-not-selected {
+  background-color: black;
+  color: #fff;
+}
+
+.tag-ops {
+  background-color: purple;
+  color: #fff;
+}
+.tag-web {
+  background-color: blue;
+  color: #fff;
+}
+.tag-mobile {
+  background-color: teal;
+  color: #fff;
+}
+.tag-other {
+  background-color: black;
+  color: #fff;
 }
 
 .project-page {
@@ -428,7 +488,7 @@ h3 {
   transform: scale(0.98);
 }
 
-p.status-in-progress {
+/* p.status-in-progress {
   color: orangered;
 }
 
@@ -441,6 +501,22 @@ p.status-ready {
 }
 
 p.status-complete {
+  color: green;
+} */
+
+p.tag-in-progress {
+  color: orangered;
+}
+
+p.tag-waiting {
+  color: red;
+}
+
+p.tag-ready {
+  color: steelblue;
+}
+
+p.tag-complete {
   color: green;
 }
 
