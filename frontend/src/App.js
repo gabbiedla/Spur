@@ -12,6 +12,7 @@ import Project from './pages/Project';
 import NewInterview from './pages/NewInterview';
 import Interviews from './pages/Interviews';
 import Interview from './pages/Interview';
+import Edit from './pages/ProjectEdit';
 
 function App() {
   return (
